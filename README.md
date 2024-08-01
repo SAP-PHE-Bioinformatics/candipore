@@ -31,8 +31,19 @@
      workflows use the "tube map" design for that. See https://nf-co.re/docs/contributing/design_guidelines#examples for examples.   -->
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
-1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
-2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
+1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)) (shortreads)
+2. Nanoplot (long read QC)
+3. if filtering CHOPPER for long read
+4. SAMTOOLS Index Reference genome
+5. BWA-MEM Index Reference
+6. Short Reads -> Parabricks fq2bam and BWA-mem run
+7. Long Reads -> Parabricks Minimap2 and Minimap2
+8. Sambadamba, mark dups
+9. BEDTOOLS Genomecov
+10. CLAIR3 variant calling
+11. PEPPER-margin-DeepVariant
+12. SNIFFLES if svcaller=true
+13. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
 
 ## Usage
 
