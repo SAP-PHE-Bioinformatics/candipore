@@ -63,6 +63,9 @@ Now, you can run the pipeline using:
 nextflow run nf-core/candipore \
    -profile <docker/singularity/.../institute> \
    --input samplesheet.csv \
+  //if using GPU and parabricks add --cuda else remove
+   --cuda
+  //if using for other reference genome add --reference <path to fasta>
    --outdir <OUTDIR>
 ```
 
